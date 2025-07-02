@@ -5,7 +5,8 @@ async function getWeatherPromise(city, unitGroup) {
         alert("Please enter a city name.");
         throw new Error("City name is required.");
     }
-
+    localStorage.setItem("city", city); // Store the city name in localStorage
+    
     const response = await fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+city+'/next6days?unitGroup='+unitGroup+'&key='+apiKey, {mode: 'cors'});
     if (!response.ok) {
         alert("Error fetching weather data. Please try again.");
