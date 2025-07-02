@@ -22,10 +22,25 @@ async function getWeatherPromise(city, unitGroup) {
 
 }
 
+function getCityName(data) {
+    if (!data || !data.address) {
+        throw new Error("Invalid weather data");
+    }
+
+    const address = data.address;
+    const capitalizedAddress = address.charAt(0).toUpperCase() + address.slice(1);
+
+    return capitalizedAddress;
+}
+
 function getDateString(date) {
     const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
     return new Intl.DateTimeFormat(undefined, options).format(new Date(date));
 }
+function getWeekdayString(date) {
+  return new Intl.DateTimeFormat(undefined, { weekday: 'long' }).format(new Date(date));
+}
+
 
 function getCurrentTemperature(data) {
     if (!data || !data.currentConditions || !data.currentConditions.temp) {
@@ -57,9 +72,16 @@ function getCurrentCondition(data) {
 
 function getCurrentIcon(data) {
     if (!data || !data.currentConditions || !data.currentConditions.icon) {
-        throw new Error("Invalid weather data");
+        return null; // 🔁 allow waiting/retry logic
     }
     return data.currentConditions.icon;
 }
 
-export { getWeatherPromise, getDateString, getCurrentTemperature, getMaxTemperature, getMinTemperature, getCurrentCondition, getCurrentIcon };
+function getForecastIcon(data, dayIndex) {
+    if (!data || !data.days || !data.days[dayIndex] || !data.days[dayIndex].icon) {
+        return null; // 🔁 allow waiting/retry logic
+    }
+    return data.days[dayIndex].icon;
+}
+
+export {getCityName, getWeatherPromise, getDateString, getWeekdayString, getCurrentTemperature, getMaxTemperature, getMinTemperature, getCurrentCondition, getCurrentIcon, getForecastIcon };

@@ -13,6 +13,7 @@ function getWeatherIcon(weatherCondition) {
         'rain-snow-showers-day': 'rain-snow-showers-day.svg',
         'rain-snow-showers-night': 'rain-snow-showers-night.svg',
         'rain-snow': 'rain-snow.svg',
+        'rain': 'rain.svg',
         'showers-day': 'showers-day.svg',
         'showers-night': 'showers-night.svg',
         'sleet': 'sleet.svg',
@@ -23,11 +24,14 @@ function getWeatherIcon(weatherCondition) {
         'thunder-showers-day': 'thunder-showers-day.svg',
         'thunder-showers-night': 'thunder-showers-night.svg',
         'thunder': 'thunder.svg',
-        'wind': 'wind.svg',
-        'default': 'clear-day.svg' // Fallback icon
+        'wind': 'wind.svg'
     };
 
-    const iconFile = iconMapping[weatherCondition] || iconMapping.default;
+    const iconFile = iconMapping[weatherCondition];
+     if (!iconFile) {
+        console.warn("No icon file found for:", weatherCondition);
+        return ''; // or return a loading.svg or '' to skip
+    }
 
     const iconPath = iconContext(`./${iconFile}`);
 

@@ -9,4 +9,90 @@ html,body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:20px;
+}
+
+/* Form Styling */
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #4a5568;
+    border-radius: 5px;
+    background-color: #1e293b;
+    color: white;
+    font-size: 16px;
+}
+input[type="text"]:focus {
+    border-color: #63b3ed;
+    outline: none;
+}
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button[type="submit"]:hover {
+    background-color: #3182ce;
+}
+
+/* Main Card */
+#main-card {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+h1,p{
+    margin: 0px;
+}
+#main-weather {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+#main-weather > p:first-child {
+    font-size: 24px;
+    font-weight: bold;
+}
+#main-weather-icon {
+    width: 50px;
+    height: 50px;
+}
+
+/* Next Week Forecast Cards */
+h2{
+    margin: 0px;
+    text-align: center;
+    font-size: 24px;
+    color: #63b3ed;
+}
+#forecast {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    background-color: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.forecast-card img {
+    margin-top:5px;
+    width: 40px;
+    height: 40px;
 }
