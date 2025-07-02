@@ -20,7 +20,7 @@ A responsive weather application that displays real-time weather data using the 
 ## 🚀 Live Demo
 
 Check it out here:  
-[LIVE NOW](https://your-username.github.io/weather-app/](https://hassan-n-khan.github.io/weather-app/)
+[LIVE NOW](https://hassan-n-khan.github.io/weather-app/)
 
 ---
 
