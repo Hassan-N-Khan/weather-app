@@ -27,4 +27,3 @@ window.addEventListener("load", function() {
         console.error("Error fetching weather data on load:", error);
     });
 });
-//body.innerHTML = `<img src="${getWeatherIcon(getCurrentIcon(data))}" alt="Weather Icon" class="weather-icon">`;
